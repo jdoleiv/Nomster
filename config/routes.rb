@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-root 'places#index'
+  root 'places#index'
 
-resources :places
+  resources :places do
+    resources :comments, only: :create
+  end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
